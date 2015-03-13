@@ -38,8 +38,14 @@
         </div>
       </div>
       <div class="row">
+        <div class="col-xs-12 text-center">
+          <label for="tarName">Archive name:</label>
+          <input id="tarName" ng-model="tarName" type="textfield">
+        </div>
+      </div>
+      <div class="row">
         <div class="col-xs-12">
-          <code>tar cf martin.tar {{ tarItems }}</code>
+          <code>tar cf {{ tarName }} {{ tarItems }}</code>
         </div>
       </div>
     </div><!-- /.container -->
