@@ -1,0 +1,14 @@
+select {
+  min-width: 100%;
+  box-sizing: border-box;
+  min-height: 500px;
+}
+
+.app {
+  margin-top: 20px;
+}
+
+.isDir {
+  background-color: #ded;
+}
+

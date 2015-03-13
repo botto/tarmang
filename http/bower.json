@@ -1,0 +1,24 @@
+{
+  "name": "TarMang-HTTP",
+  "version": "0.0.1",
+  "authors": [
+    "Martin Eskdale Moen <martinmoen@gmail.com>"
+  ],
+  "description": "Frontend for the Tarmang app",
+  "main": "index.html",
+  "keywords": [
+    "tar"
+  ],
+  "license": "GPLv3",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.2",
+    "angular": "~1.3.14"
+  }
+}

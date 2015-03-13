@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Tar Manager</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="style.css" rel="stylesheet">
+  </head>
+
+  <body ng-controller="TarMang as tarMg" class="app">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-5">
+          <select ng-keyup="addProposedFilesByKey($event)"id="proposedFiles" multiple ng-model="proposedFiles">
+            <option  ng-repeat="(uuid, f) in files" value="{{ uuid }}" ng-class="(f.isFile ? 'isFile' : 'isDir')">{{f.name}}</option>
+          </select>
+          <!--<select id="proposedFiles" multiple ng-model="proposedFiles" ng-options="file as file.name for file in files"
+            options-class="{ 'isDir': isDir, 'isFile': !isDir }"></select>-->
+        </div>
+        <div class="col-xs-2 controls text-center">
+          <a ng-click="addProposedFiles()" class="btn btn-default btn-block">&gt;&gt;&gt;</a>
+          <a ng-click="removeSelectedFiles()" class="btn btn-default btn-block">&lt;&lt;&lt;</a>
+        </div>
+        <div class="col-xs-5">
+          <select if="selectedFiles" multiple ng-model="removeProposed">
+            <option ng-repeat="(uuid, f) in selectedFiles" value="{{ uuid }}" ng-class="(f.isFile ? 'isFile' : 'isDir')">{{ f.name }}</option>
+          </select>
+          <!--<select multiple ng-model="removeProposed" ng-options="file as file.name for file in selectedFiles"></select>-->
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <code>tar cf martin.tar {{ tarItems }}</code>
+        </div>
+      </div>
+    </div><!-- /.container -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
+
